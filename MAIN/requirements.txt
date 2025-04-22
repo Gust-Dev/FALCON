@@ -2,3 +2,6 @@ opencv-python
 numpy
 scikit-image
 PyQt5
+svgwrite
+reportlab
+tqdm
