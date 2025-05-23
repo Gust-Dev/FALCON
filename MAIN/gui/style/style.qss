@@ -1,0 +1,164 @@
+/* style/style.qss - Tema Moderno e Limpo */
+
+/* Janela Principal e Widgets Centrais */
+QMainWindow, QWidget#centralWidget { /* Se o seu central_widget tiver objectName="centralWidget" */
+    background-color: #F0F2F5; /* Um cinza bem claro para o fundo geral */
+}
+
+/* Estilo geral para todos os QPushButtons */
+QPushButton {
+    background-color: #007BFF;  /* Azul primário */
+    color: white;
+    border: 1px solid #007BFF;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 4px;        /* Cantos levemente arredondados */
+    min-height: 28px;          /* Altura mínima para consistência */
+}
+
+QPushButton:hover {
+    background-color: #0069D9; /* Azul um pouco mais escuro */
+    border-color: #0062CC;
+}
+
+QPushButton:pressed {
+    background-color: #0056B3; /* Azul ainda mais escuro */
+    border-color: #0056B3;
+}
+
+QPushButton:disabled {
+    background-color: #C0C0C0; /* Cinza claro para desabilitado */
+    color: #808080;            /* Texto cinza para desabilitado */
+    border-color: #B0B0B0;
+}
+
+/* Botões de ação principais (se você quiser destacá-los) */
+/* Você precisaria definir objectName para eles no Python, ex: self.load_button.setObjectName("primaryActionButton") */
+QPushButton#load_button, QPushButton#process_selected_button, QPushButton#save_svg_button {
+    /* Pode adicionar estilos específicos aqui se quiser que eles se destaquem mais */
+    /* Ex: background-color: #28A745;  /* Verde para uma ação positiva */
+    /* border-color: #28A745; */
+}
+/* Ou para um botão de reset/cancelar */
+QPushButton#reset_button {
+    background-color: #6C757D; /* Cinza mais escuro para reset */
+    border-color: #6C757D;
+}
+QPushButton#reset_button:hover {
+    background-color: #5A6268;
+    border-color: #545B62;
+}
+QPushButton#reset_button:pressed {
+    background-color: #545B62;
+    border-color: #545B62;
+}
+
+
+/* Estilo para QCheckBox */
+QCheckBox {
+    spacing: 8px; /* Espaço entre a caixa e o texto */
+    font-size: 13px;
+    color: #333333; /* Cor do texto do checkbox */
+}
+QCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #B0BEC5; /* Borda cinza claro */
+    border-radius: 3px;
+    background-color: #FFFFFF; /* Fundo branco */
+}
+QCheckBox::indicator:hover {
+    border: 1px solid #007BFF; /* Borda azul ao passar o mouse */
+}
+QCheckBox::indicator:checked {
+    background-color: #007BFF; /* Fundo azul quando marcado */
+    border: 1px solid #007BFF;
+    image: url(none); /* Remove o ícone padrão de 'check' se quiser um visual mais limpo só com a cor de fundo */
+    /* Se quiser um ícone de check branco (precisaria de um arquivo check.png branco): */
+    /* image: url(path/to/your/white_check_icon.png); */
+}
+QCheckBox::indicator:disabled {
+    background-color: #E0E0E0;
+    border-color: #C0C0C0;
+}
+
+/* Estilo para QDoubleSpinBox e QSpinBox */
+QDoubleSpinBox, QSpinBox {
+    padding: 5px;
+    border: 1px solid #CED4DA; /* Borda cinza padrão */
+    border-radius: 4px;
+    background-color: white;
+    font-size: 13px;
+    color: #333333;
+    min-height: 26px;
+}
+QDoubleSpinBox:focus, QSpinBox:focus {
+    border: 1px solid #007BFF; /* Borda azul quando focado */
+    /* box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Efeito de "glow" - pode não funcionar em todos os estilos Qt */
+}
+QDoubleSpinBox::up-button, QDoubleSpinBox::down-button,
+QSpinBox::up-button, QSpinBox::down-button {
+    /* Você pode estilizar os botões de up/down aqui se quiser */
+    /* Ex: subcontrol-origin: border; width: 16px; border-left: 1px solid #CED4DA; */
+}
+
+/* Estilo para QLabel (geral) */
+QLabel {
+    font-size: 13px;
+    color: #263238; /* Um cinza escuro para texto */
+    padding: 2px;
+}
+
+/* Para QFormLayout, você estiliza os QLabels e os widgets dentro dele. */
+/* Exemplo para os QLabels que são "rótulos" no QFormLayout */
+/* Supondo que os widgets no QFormLayout estão em um QWidget com objectName="formPanel" */
+QWidget#formPanel QLabel {
+    font-weight: bold; /* Deixa os rótulos do formulário em negrito */
+    /* padding-right: 10px; */ /* Adiciona espaço à direita do rótulo */
+}
+
+
+/* Área de Preview (ClickableImageLabel) */
+/* Supondo que você deu o objectName="imagePreview" para sua ClickableImageLabel no Python */
+ClickableImageLabel#imagePreview {
+    border: 1px solid #B0BEC5; /* Borda cinza claro e sutil */
+    background-color: #FFFFFF; /* Fundo branco para a área da imagem */
+    /* border-radius: 4px; */ /* Opcional: cantos arredondados para a área de preview */
+}
+
+/* Painéis ou Seções - Use QFrame ou QWidget com objectName */
+/* Exemplo para um painel de controles gerais */
+/* No Python: self.painel_controles_gerais = QWidget(); self.painel_controles_gerais.setObjectName("controlsPanel") */
+QWidget#controlsPanel {
+    background-color: #FFFFFF;
+    border: 1px solid #DEE2E6;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 10px; /* Espaço abaixo do painel */
+}
+
+/* Dica: Para agrupar visualmente os layouts (action_button_layout, general_controls_layout, etc.)
+   você pode envolvê-los em QFrame ou QWidget, dar um setObjectName e estilizar aqui.
+   Ex: self.action_buttons_panel = QFrame(); self.action_buttons_panel.setObjectName("actionButtonsPanel")
+       self.action_buttons_panel.setLayout(self.action_button_layout)
+       self.main_layout.addWidget(self.action_buttons_panel)
+*/
+QFrame#actionButtonsPanel, QFrame#generalControlsPanel, QFrame#simplificationControlsPanel {
+    background-color: transparent; /* Para não sobrescrever o fundo da QMainWindow */
+    /* Se quiser bordas ao redor dos grupos de layout: */
+    /* border: 1px solid #e0e0e0; */
+    /* border-radius: 5px; */
+    /* padding: 5px; */
+    /* margin-bottom: 8px; */
+}
+
+/* Tooltips */
+QToolTip {
+    color: #ffffff;            /* Texto branco */
+    background-color: #263238; /* Fundo cinza escuro, quase preto */
+    border: 1px solid #000000;
+    padding: 5px;
+    border-radius: 3px;
+    opacity: 230; /* Leve transparência (0-255) */
+}
