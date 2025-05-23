@@ -131,12 +131,11 @@ ClickableImageLabel#imagePreview {
 /* Exemplo para um painel de controles gerais */
 /* No Python: self.painel_controles_gerais = QWidget(); self.painel_controles_gerais.setObjectName("controlsPanel") */
 QWidget#controlsPanel {
-    background-color: #FFFFFF;
-    border: 1px solid #DEE2E6;
-    border-radius: 6px;
+    background-color: #E9EEF2; /* Um tom ligeiramente diferente do fundo principal */
+    border-right: 1px solid #D1D9E0; /* Uma linha divisória sutil */
     padding: 10px;
-    margin-bottom: 10px; /* Espaço abaixo do painel */
 }
+
 
 /* Dica: Para agrupar visualmente os layouts (action_button_layout, general_controls_layout, etc.)
    você pode envolvê-los em QFrame ou QWidget, dar um setObjectName e estilizar aqui.
