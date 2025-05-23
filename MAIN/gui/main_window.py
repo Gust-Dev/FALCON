@@ -32,13 +32,21 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("F.A.L.C.O.N - Vetorizador Interativo") # Título atualizado
+
+        
+
+
+
+        self.setWindowTitle("F.A.L.C.O.N") # Título atualizado
         self.setGeometry(100, 100, 1200, 750) # Ajuste o tamanho inicial da janela
+
+       
 
         # --- 1. WIDGET CENTRAL E LAYOUT PRINCIPAL (HORIZONTAL) ---
         self.central_widget = QWidget()
         self.central_widget.setObjectName("centralWidget") # Para QSS, se necessário
         self.setCentralWidget(self.central_widget)
+
         # O layout principal agora é HORIZONTAL
         self.main_app_layout = QHBoxLayout(self.central_widget)
         self.main_app_layout.setContentsMargins(9, 9, 9, 9) # Margens para o layout principal
@@ -56,7 +64,7 @@ class MainWindow(QMainWindow):
 
         # --- Grupo: Botões de Ação ---
         self.action_buttons_group_container = QWidget() # Container para este grupo
-        self.action_button_layout = QHBoxLayout(self.action_buttons_group_container) # Botões lado a lado
+        self.action_button_layout = QVBoxLayout(self.action_buttons_group_container) # Botões Abaixo do Outro
         self.action_button_layout.setContentsMargins(0,0,0,0)
 
         self.load_button = QPushButton("Carregar Imagem")
@@ -107,14 +115,14 @@ class MainWindow(QMainWindow):
         self.simplification_controls_layout.setSpacing(8)
 
         self.enable_custom_simplification_checkbox = QCheckBox("Habilitar Simplificação RDP")
-        self.enable_custom_simplification_checkbox.setToolTip("Ativa/Desativa o algoritmo de simplificação de Douglas-Peucker.")
+        self.enable_custom_simplification_checkbox.setToolTip("Ativa/Desativa o algoritmo de simplificação de Nô de Vetores.")
         self.enable_custom_simplification_checkbox.setChecked(False)
         self.enable_custom_simplification_checkbox.stateChanged.connect(self.trigger_reprocess_on_control_change)
         self.simplification_controls_layout.addRow(self.enable_custom_simplification_checkbox)
 
         self.custom_epsilon_input = QDoubleSpinBox()
         self.custom_epsilon_input.setToolTip("Define o valor de tolerância (epsilon) para o algoritmo RDP.")
-        self.custom_epsilon_input.setSuffix(" (ε)")
+        self.custom_epsilon_input.setSuffix("")
         self.custom_epsilon_input.setMinimum(0.00)
         self.custom_epsilon_input.setMaximum(50.0)
         self.custom_epsilon_input.setSingleStep(0.01)
