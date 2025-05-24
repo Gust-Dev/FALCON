@@ -21,6 +21,6 @@ Desenvolvido com foco na produtividade, o F.A.L.C.O.N. elimina a complexidade do
   Algoritmos baseados em detecção de contraste, thresholding adaptativo e suavização de curvas.
 
 - 💡 **Interface Intuitiva (GUI)** *(ou CLI, se for o caso)*  
-  Fluxo simples e direto para importação de imagens, pré-visualização vetorial e exportação para formatos como SVG, PDF e AI.
+  Fluxo simples e direto para importação de imagens, pré-visualização vetorial e exportação para o formato SVG.
 
 ---
